@@ -1,7 +1,6 @@
 import React from "react";
 import UserDetails from "../components/UserDetails";
 import ReloadButton from "../components/ReloadButton";
-import { Button } from "@material-tailwind/react";
 const HomePage: React.FC = () => {
   return (
     <div className="h-screen overflow-hidden ">
