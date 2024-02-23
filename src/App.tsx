@@ -1,8 +1,8 @@
-import UserDetails from "./components/UserDetails";
+import HomePage from "./pages/HomePage";
 function App() {
   return (
     <>
-      <UserDetails />
+      <HomePage />
     </>
   );
 }
