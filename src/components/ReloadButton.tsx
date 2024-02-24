@@ -1,4 +1,6 @@
 import { Button } from "@material-tailwind/react";
+import _ from "lodash";
+
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../store/hook";
 import { usersDataFetchApi } from "../slices/usersDetail";
@@ -9,10 +11,17 @@ const ReloadButton: React.FC = () => {
   //Loading State from Redux State
   const isLoading = useAppSelector((state) => state.userData.isLoading);
 
+  //Debouncing Function
+
+  const debouncedButtonClick = _.debounce(() => {
+    console.log("debouncer in action");
+    dispatch(usersDataFetchApi());
+  }, 300);
+
   //Button Click Fucnciton
   const callNewUser = async () => {
     try {
-      dispatch(usersDataFetchApi());
+      debouncedButtonClick();
     } catch (error) {
       console.error(error);
       throw new Error("Error Fetching Data");
