@@ -33,7 +33,7 @@ Start the development server:
  npm run dev
 ```
 
-The server will  be available on  http://localhost:5173 ```
+The server will  be available on  http://localhost:5173 
 
 # Running Production Version
 
@@ -48,7 +48,7 @@ Start the Production server:
 npm run preview
 ```
 
-The Production server will  be available on   http://localhost:4173 ```
+The Production server will  be available on   http://localhost:4173 
 
 
 
