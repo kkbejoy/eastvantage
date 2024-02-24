@@ -3,6 +3,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../store/hook";
 import { usersDataFetchApi } from "../slices/usersDetail";
 import { LOADING_STATES } from "../constants/constants";
+import { toast } from "sonner";
 
 const ReloadButton: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -12,6 +13,7 @@ const ReloadButton: React.FC = () => {
       dispatch(usersDataFetchApi());
     } catch (error) {
       console.log(error);
+      throw new Error("Error Fetching Data");
     }
   };
   return (

@@ -19,9 +19,8 @@ const UserDetails: React.FC = () => {
     email: string;
     picture: { large: string };
   };
-  const { first, last } = name;
-  const { large: profilePic } = picture;
-  console.log("User details from redux", isDataLoading);
+  const { first: firstName, last: lastName } = name;
+  const { large: profileImageUrl } = picture;
   useEffect(() => {
     dispatch(usersDataFetchApi());
   }, []);
@@ -39,7 +38,7 @@ const UserDetails: React.FC = () => {
         {isDataLoading === LOADING_STATES.SUCCESS && (
           <img
             className="rounded-full my-auto mx-auto h-fit w-fit  p-3 object-fill "
-            src={profilePic}
+            src={profileImageUrl}
             alt=""
             loading="lazy"
           />
@@ -53,8 +52,8 @@ const UserDetails: React.FC = () => {
               : ""
           } mb-2 rounded-lg text-xl font-semibold leading-tight text-neutral-800 dark:text-black`}
         >
-          {isDataLoading === LOADING_STATES.SUCCESS ? first : ""} &nbsp;
-          {isDataLoading === LOADING_STATES.SUCCESS ? last : ""}
+          {isDataLoading === LOADING_STATES.SUCCESS ? firstName : ""} &nbsp;
+          {isDataLoading === LOADING_STATES.SUCCESS ? lastName : ""}
         </h5>
       </div>
       <div

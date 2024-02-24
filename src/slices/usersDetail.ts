@@ -1,40 +1,44 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL, LOADING_STATES } from "../constants/constants";
+import { toast } from "sonner";
 
+//User Data Type
 interface userDataType {
   info: object;
   users: object[];
   isLoading: string;
 }
 
+//Initial State of the userData
 const initialState: userDataType = {
   info: {},
   users: [
     {
       name: {},
       email: "",
-      picture:
-        "https://res.cloudinary.com/dlcsyyk7z/image/upload/v1698830239/mentors/mentor/images_2_d4e6fp_siwirt_a7fcrt.jpg",
+      picture: "",
     },
   ],
   isLoading: LOADING_STATES.PENDING,
 };
 
+//Async Data Fetching using Thunk
 export const usersDataFetchApi = createAsyncThunk(
   "UsersData/fetch",
   async () => {
     try {
-      console.log("hello from thunk ");
       const usersData = await axios.get(`${BASE_URL}`);
-      console.log("Response From Users data Thunk", usersData);
       return usersData.data;
     } catch (error) {
       console.log(error);
+      toast.error("Error Fetching data");
+      throw error;
     }
   }
 );
 
+//user data Slice
 export const userSlice = createSlice({
   name: "usersData",
   initialState,
@@ -58,4 +62,5 @@ export const userSlice = createSlice({
   },
 });
 
+//Reducer
 export const userReducer = userSlice.reducer;
