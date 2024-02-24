@@ -1,32 +1,40 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/kkbejoy/eastvantage/assets/49184438/26908e65-abdd-41d1-ab38-c2213c0aad0a)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Installation
+Clone the repository:
 
-- Configure the top-level `parserOptions` property like this:
+git clone https://github.com/kkbejoy/eastvantage
+Navigate to the project directory:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+cd eastvantage
+Install the dependencies using your preferred package manager in both the server and client directories:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# Riitude
-# Riitude
+ yarn install  # or npm install
+
+# Running Development Version
+
+Start the development server:
+
+yarn run dev  # or npm run dev
+
+The server will  be available on http://localhost:5173
+
+# Running Production Version
+
+Build the code for Production
+
+npm run build
+
+Start the Production server:
+
+npm run preview
+
+The Production server will  be available on http://localhost:4173
+
+
+
