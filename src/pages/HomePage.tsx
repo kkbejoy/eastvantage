@@ -18,8 +18,8 @@ const HomePage: React.FC = () => {
             <UserDetails />
           </Suspense>
         </div>{" "}
-        <div className="w-1/3 md:mt-44">
-          <Suspense fallback={<Loader />}>
+        <div className="flex justify-center md:w-1/3 md:block items-center md:mt-44">
+          <Suspense fallback={<div></div>}>
             <ReloadButton />
           </Suspense>
         </div>
