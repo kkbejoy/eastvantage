@@ -5,25 +5,33 @@ import { LOADING_STATES } from "../constants/constants";
 
 const UserDetails: React.FC = () => {
   const dispatch = useAppDispatch();
+
+  //State From Redux
   const isDataLoading = useAppSelector((state) => state.userData?.isLoading);
   const user = useAppSelector((state) => state.userData?.users[0]) || {
     name: { first: "unknown", last: "user" },
     email: "unknown",
     picture: {
-      large:
-        "https://res.cloudinary.com/dlcsyyk7z/image/upload/v1698830239/mentors/mentor/images_2_d4e6fp_siwirt_a7fcrt.jpg",
+      large: "",
     },
   };
-  const { name, email, picture } = user as {
+
+  //Destructuring User Data
+  const {
+    name: { first: firstName, last: lastName },
+    email,
+    picture: { large: profileImageUrl },
+  } = user as {
     name: { first: string; last: string };
     email: string;
     picture: { large: string };
   };
-  const { first: firstName, last: lastName } = name;
-  const { large: profileImageUrl } = picture;
+
+  //Side Effect that fetches the user Data first Time the page loads
   useEffect(() => {
     dispatch(usersDataFetchApi());
   }, []);
+
   return (
     <div className="p-3 h-96 w-72 bg-gray-200 overflow-hidden text-center rounded-lg shadow-2xl">
       <div

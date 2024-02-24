@@ -3,19 +3,22 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../store/hook";
 import { usersDataFetchApi } from "../slices/usersDetail";
 import { LOADING_STATES } from "../constants/constants";
-import { toast } from "sonner";
 
 const ReloadButton: React.FC = () => {
   const dispatch = useAppDispatch();
+  //Loading State from Redux State
   const isLoading = useAppSelector((state) => state.userData.isLoading);
+
+  //Button Click Fucnciton
   const callNewUser = async () => {
     try {
       dispatch(usersDataFetchApi());
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw new Error("Error Fetching Data");
     }
   };
+
   return (
     <div className="flex items-center gap-4 p-3">
       <Button

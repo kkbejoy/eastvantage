@@ -28,7 +28,18 @@ export const usersDataFetchApi = createAsyncThunk(
   "UsersData/fetch",
   async () => {
     try {
+      //User Data from API
       const usersData = await axios.get(`${BASE_URL}`);
+
+      //Storing Data on the local storage as advised
+      localStorage.setItem(
+        "eartVentures",
+        JSON.stringify(usersData?.data?.results[0])
+      );
+      // // Getting data from local
+      // const localData: string = localStorage.getItem("eartVentures") || "";
+      // console.log("local storeage data", JSON.parse(localData));
+
       return usersData.data;
     } catch (error) {
       console.log(error);
